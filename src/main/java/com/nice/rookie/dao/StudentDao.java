@@ -12,12 +12,13 @@ import java.util.List;
 @Repository
 public class StudentDao {
 
-    public List<Student>findAllStudents(){
-        Student student1 = new Student(1,"Mark","Spring","New York");
-        Student student2= new Student(2,"Steve","React","Chennai");
-        Student student3 = new Student(3,"Bruce","Node.js","Banglore");
+        static Student student1 = new Student(1,"Mark","Spring","New York");
+        static Student student2= new Student(2,"Steve","React","Chennai");
+        static Student student3 = new Student(3,"Bruce","Node.js","Banglore");
 
-        List<Student> studentList = new ArrayList<>(Arrays.asList(student1,student2,student3));
+        static List<Student> studentList = new ArrayList<>(Arrays.asList(student1,student2,student3));
+
+    public List<Student>findAllStudents(){
         return studentList;
 
     }
@@ -31,6 +32,14 @@ public class StudentDao {
                 }
             }
             return null;
+        }
+
+
+
+        public Student addStudent(Student student){
+            List<Student> stuList = findAllStudents();
+            stuList.add(student);
+            return student;
         }
 
 

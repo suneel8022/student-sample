@@ -33,4 +33,11 @@ public class StudentController {
         return student;
     }
 
+
+    @RequestMapping(value = "/students", method = RequestMethod.POST)
+    public Student addStudent(@RequestBody Student student){
+        return studentService.addStudent(student);
+
+    }
+
 }

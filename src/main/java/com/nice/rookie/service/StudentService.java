@@ -21,4 +21,8 @@ public class StudentService {
     public Student findById(Integer id){
         return studentDao.findById(id);
     }
+
+    public Student addStudent(Student student){
+        return studentDao.addStudent(student);
+    }
 }
