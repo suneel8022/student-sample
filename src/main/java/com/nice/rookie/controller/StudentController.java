@@ -40,4 +40,10 @@ public class StudentController {
 
     }
 
+    @RequestMapping(value = "/students/{id}", method = RequestMethod.DELETE)
+    public String deleteStudent(@PathVariable Integer id){
+//        System.out.println();
+        return studentService.deleteStudent(id) != null ? "Student deleted successfully!!" : "No id exist";
+    }
+
 }

@@ -42,6 +42,15 @@ public class StudentDao {
             return student;
         }
 
+        public Integer removeStudent(Integer id){
+        for(Student student : studentList){
+            if(student.getStudentId().equals(id)){
+                studentList.remove(student);
+                return id;
+            }
+        }
+        return null;
+        }
 
 
 
