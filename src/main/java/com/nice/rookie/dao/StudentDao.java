@@ -52,6 +52,21 @@ public class StudentDao {
         return null;
         }
 
+        public Student updateStudent(Student student){
+        Integer id = student.getStudentId();
+            for(Student tempSt : studentList){
+                if(tempSt.getStudentId().equals(id)){
+                    tempSt.setStudentName(student.getStudentName());
+                    tempSt.setCourse(student.getCourse());
+                    tempSt.setCity(student.getCity());
+                    return tempSt;
+                }
+            }
+
+            return null;
+
+        }
+
 
 
 

@@ -34,16 +34,30 @@ public class StudentController {
     }
 
 
-    @RequestMapping(value = "/students", method = RequestMethod.POST)
+//    @RequestMapping(value = "/students", method = RequestMethod.POST)
+    @PostMapping("/students")
     public Student addStudent(@RequestBody Student student){
         return studentService.addStudent(student);
 
     }
 
-    @RequestMapping(value = "/students/{id}", method = RequestMethod.DELETE)
+//    @RequestMapping(value = "/students/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping("/students/{id}")
     public String deleteStudent(@PathVariable Integer id){
 //        System.out.println();
         return studentService.deleteStudent(id) != null ? "Student deleted successfully!!" : "No id exist";
     }
+
+
+    @RequestMapping(value = "/students", method = RequestMethod.PUT)
+    public String updateStudent(@RequestBody Student student){
+        Student updatedStudent =  studentService.updateStudent(student);
+
+        if(updatedStudent == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Unable to find student with id" + student.getStudentId() +"to update!!");
+        }
+        return "Student updated successfully " + updatedStudent;
+    }
+
 
 }

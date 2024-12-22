@@ -29,4 +29,8 @@ public class StudentService {
     public Integer deleteStudent(Integer id){
         return studentDao.removeStudent(id);
     }
+
+    public Student updateStudent(Student student){
+        return studentDao.updateStudent(student);
+    }
 }
