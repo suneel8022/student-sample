@@ -1,10 +1,9 @@
 package com.nice.rookie.controller;
 
 import com.nice.rookie.entity.Student;
-import com.nice.rookie.service.StudentService;
+import com.nice.rookie.service.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -15,7 +14,7 @@ import java.util.List;
 public class StudentController {
 
     @Autowired
-    StudentService studentService;
+    StudentServiceImpl studentService;
 
     @RequestMapping(value = "/students",method = RequestMethod.GET)
 //    @GetMapping(value = "/students")
